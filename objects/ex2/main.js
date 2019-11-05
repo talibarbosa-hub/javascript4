@@ -6,3 +6,46 @@ const users = [{
   nome: "Doge",
   imagem: "https://images-na.ssl-images-amazon.com/images/I/81-yKbVND-L._SY355_.png"
 }]
+
+class Div{
+  constructor(style, user){
+      this.style =style
+      this.user = user
+  }
+
+criaDiv(){
+return `<div class="${this.style}">
+  <img class ="img-rounded" src="${this.user.imagem}"/>
+  <h2> ${this.user.nome}</h2>
+ </div>`
+}
+}
+
+
+
+const div1 = new Div("green avatar", users[0])
+const div2 = new Div("green avatar", users[1])
+
+document.getElementById("cards-section").insertAdjacentHTML("beforeend", div1.criaDiv())
+document.getElementById("cards-section").insertAdjacentHTML("beforeend", div2.criaDiv())
+
+
+// Outro jeito de fazer 
+// class Avatar{
+//   constructor(usuario){
+//     this.usuario = usuario
+//   }
+//   render() {  // render é metodo que executa o conteudo dado a ele quando a pagina é renderizada
+//     const avatar = `<div class="avatar green">
+//     <img class ="img-rounded" src="${this.usuario.imagem}"/>
+//     <h2>${this.usuario.nome}</h2>
+//     </div>`
+//     document.getElementById('cards-section').insertAdjacentHTML('beforeend', avatar)
+//   }
+// }
+
+// users.map((user) => {  // map funciona como um forEach ele itera sobre cada elemento e retona um array
+//   new Avatar(user).render()
+// })
+
+
