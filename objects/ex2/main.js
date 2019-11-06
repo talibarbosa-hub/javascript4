@@ -31,21 +31,23 @@ document.getElementById("cards-section").insertAdjacentHTML("beforeend", div2.cr
 
 
 // Outro jeito de fazer 
-// class Avatar{
-//   constructor(usuario){
-//     this.usuario = usuario
-//   }
-//   render() {  // render é metodo que executa o conteudo dado a ele quando a pagina é renderizada
-//     const avatar = `<div class="avatar green">
-//     <img class ="img-rounded" src="${this.usuario.imagem}"/>
-//     <h2>${this.usuario.nome}</h2>
-//     </div>`
-//     document.getElementById('cards-section').insertAdjacentHTML('beforeend', avatar)
-//   }
-// }
 
-// users.map((user) => {  // map funciona como um forEach ele itera sobre cada elemento e retona um array
-//   new Avatar(user).render()
-// })
+class Avatar{
+  constructor(usuario){
+    this.usuario = usuario
+  }
+
+  render() {  // render é metodo que executa o conteudo dado a ele quando a pagina é renderizada
+    const avatar = `<div class="avatar green">
+    <img class ="img-rounded" src="${this.usuario.imagem}"/>
+    <h2>${this.usuario.nome}</h2>
+    </div>`
+    document.getElementById('cards-section').insertAdjacentHTML('beforeend', avatar)
+  }
+}
+
+users.map((user) => {  // map funciona como um forEach ele itera sobre cada elemento e retona um array
+  new Avatar(user).render()
+})
 
 

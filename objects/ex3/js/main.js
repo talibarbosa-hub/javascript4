@@ -25,3 +25,46 @@ let resultados = [
         imagem: "http://img.recipepuppy.com/5.jpg"
     }
 ];
+
+
+const renderNavbar = new Navbar
+renderNavbar.render()
+
+
+resultados.map((receita) => {
+    new Cards(receita).render()
+})
+
+
+// ou
+
+// document.querySelector(".cards").innerHTML = 
+// resultados.map(receita => {
+//     return new Cards(receita).render
+//     .join("")
+// })
+
+
+// const searchPorTecla = (value) => {
+//     resultados.filter(receita => {
+//         console.log(receita.titulo.includes(value));
+        
+//     })
+// }
+const btn = document.querySelector(".button__search")
+btn.addEventListener('click', function(){
+    const inputValue =document.querySelector(".input__search").value.toUpperCase()
+    let achados = resultados.filter(receita => {  // filter se possui a condição ele retorna o que possi
+        return receita.titulo.toUpperCase().includes(inputValue) ||
+        receita.ingredientes.toUpperCase().includes(inputValue)
+        // includes retorna verdadeiro ou falso
+    })
+    console.log(achados)
+    document.querySelector(".cards").innerHTML = achados.map((receita) => {
+       return new Cards(receita).render()
+    }).join("")
+    
+})
+
+ // ou
+    
