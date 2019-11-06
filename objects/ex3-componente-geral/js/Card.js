@@ -2,7 +2,7 @@ class Card{
     constructor(receita){
         this.receita = receita 
     }
-    render(){ 
+    render(){  // abstração
         const {
             imagem,
             titulo,
