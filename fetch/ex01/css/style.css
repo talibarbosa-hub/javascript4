@@ -1,6 +1,7 @@
 .container{
     width: 100%;
     text-align: center;
+    
 }
 .body{
     display: contents;
@@ -13,3 +14,13 @@
     opacity: 0.5;
     background: gray url('../spinner.gif') center center no-repeat;
 }
+
+button{
+    border:none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(192, 129, 250);
+    color: white;
+    margin: 20px;;
+}
+
