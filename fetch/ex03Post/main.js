@@ -1,18 +1,19 @@
-const titulo= document.getElementById("titulo")
-const descrição =document.getElementById("descricao")
-const btnSubmit =document.getElementById("btn-submit")
-btnSubmit.addEventListener("click", function(evento){
-    evento.preventDefault() // para impedir de submeter e enviar o formulario
-    let body = JSON.stringify({ // construção do payload
-        title: titulo.value,
-        body: descricao.value,
-        userId: 1
+const titulo = document.getElementById("titulo")
+const descricao = document.getElementById("descricao")
+const btnSubmit = document.getElementById("btn-submit")
+
+btnSubmit.addEventListener('click', function(event){
+    event.preventDefault()
+    let body = JSON.stringify({
+        nome: "Jefferson",
+        email: "jefferson@gmail.com",
+        body: "ATUALIZEI MEU COMENT",
+        postId: 1
     })
- fetch("https://jsonplaceholder.typicode.com/posts", { // fetch por padrão envia a requisição com GET 
-      method: "POST", // objeto que vamos enviar
-      headers:{ 
-          "content-type": "application/json"
-      },
-      body
- }).then(response => response.json()).then(json=>console.log(json))
+    fetch("https://jsonplaceholder.typicode.com/comments", {
+        method: 'GET',
+        headers:{
+            "Authentication": "Bearer token"
+        }
+    }).then( response => response.json()).then(json => console.log(json))
 })
